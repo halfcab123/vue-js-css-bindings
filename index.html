@@ -1,0 +1,55 @@
+<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+<link rel="stylesheet" href="styles.css">
+
+
+<div id="exercise">
+  <button id="effect"
+          @click="active = !active"
+          :class="{highlight: highlightBool,shrink: shrinkBool}">
+    {{ label }}
+  </button><br><br>
+
+  <!-- 2) Create a couple of CSS classes and attach them via the array syntax -->
+  <div><span :class="{bluefont:true, largefont:true,
+                      yellowbackground: ybgBool,
+                      greenbackground: gbgBool,
+                      orangebackground: obgBool}">
+                      I've got 2 static classes and 3 variable classes.</span></div>
+
+  <!-- 3) Let the user enter a class (create some example classes) and attach it -->
+  <div>
+    <label>Type in a color: green, orange, or yellow</label><br>
+    <input v-model="backgroundClass" type="text">
+  </div><br><br>
+  <!-- 4) Let the user enter a class and enter true/ false for another class (create some example classes) and attach the classes -->
+  <div>
+    <span :class="{steve: steveBool,
+                  benny: bennyBool,
+                  italic: italicBool,
+                  oblique: obliqueBool}">
+                  enter a class name: steve or benny and in the other textbox put true or false</span><br>
+
+    <input v-model="classInput" style="display: inline-block" type="text">&nbsp
+    <input v-model="classBoolean" type="text">
+
+  </div>
+  <!-- 5) Repeat 3) but now with values for styles (instead of class names). Attach the respective styles.  -->
+
+  <br><br>
+  <span :style="styleObject">enter a style attribute and value as you would inside the braces of a class name in css ex: display: none</span>
+  <div>
+    <input v-model="rawStyle" type="text" placeholder="display: box">
+    <div></div><br><br>
+  </div>
+  <!-- 6) Create a simple progress bar with setInterval and style bindings. Start it by hitting the below button. -->
+  <div>
+    <button @click="startProgress">Start Progress</button>
+    <button @click="resetProgress">Reset Progress</button><br>
+    <div :style="[progressStyle,barProgress]"></div>
+  </div>
+</div>
+
+
+
+
+<script src="app.js"></script>
