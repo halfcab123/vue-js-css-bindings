@@ -1,55 +1,133 @@
-<script src="https://npmcdn.com/vue/dist/vue.js"></script>
-<link rel="stylesheet" href="styles.css">
+<html>
+<head>
 
+<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/css/mdb.min.css" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
 <div id="exercise">
-  <button id="effect"
-          @click="active = !active"
-          :class="{highlight: highlightBool,shrink: shrinkBool}">
-    {{ label }}
-  </button><br><br>
+  <container>
 
-  <!-- 2) Create a couple of CSS classes and attach them via the array syntax -->
-  <div><span :class="{bluefont:true, largefont:true,
-                      yellowbackground: ybgBool,
-                      greenbackground: gbgBool,
-                      orangebackground: obgBool}">
-                      I've got 2 static classes and 3 variable classes.</span></div>
+      <div class="col card card-body">
+        <h4 class="card-title"><img class="" style="max-width: 5%" src="https://vuejs.org/images/logo.png"/> Vue JS | Bootstrap 4 | MDB examples by: Chris R.</h4>
+        <p class="card-text">Vue JS uses a reactive virtual DOM such that the fewest possible direct changes take place to the actual DOM. Vue is also extremely light-weight at only 4,000 Bytes for the core Vue library. Vue is the highest performance reactive front-end framework currently available.</p>
+        <div class="flex-row">
+          <a href="https://chrisridgeway.me" class="card-link">My Site</a>
+          <a href="https://gitlab.com/halfcab123" class="card-link">My Gitlab</a>
+        </div>
 
-  <!-- 3) Let the user enter a class (create some example classes) and attach it -->
-  <div>
-    <label>Type in a color: green, orange, or yellow</label><br>
-    <input v-model="backgroundClass" type="text">
-  </div><br><br>
-  <!-- 4) Let the user enter a class and enter true/ false for another class (create some example classes) and attach the classes -->
-  <div>
-    <span :class="{steve: steveBool,
-                  benny: bennyBool,
-                  italic: italicBool,
-                  oblique: obliqueBool}">
-                  enter a class name: steve or benny and in the other textbox put true or false</span><br>
-
-    <input v-model="classInput" style="display: inline-block" type="text">&nbsp
-    <input v-model="classBoolean" type="text">
-
-  </div>
-  <!-- 5) Repeat 3) but now with values for styles (instead of class names). Attach the respective styles.  -->
-
-  <br><br>
-  <span :style="styleObject">enter a style attribute and value as you would inside the braces of a class name in css ex: display: none</span>
-  <div>
-    <input v-model="rawStyle" type="text" placeholder="display: box">
-    <div></div><br><br>
-  </div>
-  <!-- 6) Create a simple progress bar with setInterval and style bindings. Start it by hitting the below button. -->
-  <div>
-    <button @click="startProgress">Start Progress</button>
-    <button @click="resetProgress">Reset Progress</button><br>
-    <div :style="[progressStyle,barProgress]"></div>
-  </div>
-</div>
+    </div>
 
 
+      <div class="card-deck">
+
+      <!-- Card -->
+      <div class="col card">
+
+        <!-- Card content -->
+        <div class="card-body">
+
+          <!-- Title -->
+          <h4 class="card-title"><a class="badge badge-warning">Alternating Styles</a></h4>
+          <!-- Text -->
+          <p class="card-text">Utilizes <span class="badge badge-success">@click</span> and <span class="badge badge-success">:class</span> to activate alternating shrinking and growing. Click to turn on or off.</p>
+
+          <!-- 1) Button that alternates styles on click and then ceases after clicking again.
+
+          <!-- Button -->
+          <a id="effect"
+             class="btn"
+             @click="active = !active"
+             :class="{highlight: highlightBool,shrink: shrinkBool}">{{label}}</a>
 
 
-<script src="app.js"></script>
+        </div>
+      </div>
+      <!-- Card -->
+
+
+      <!-- 2) Create a couple of CSS classes and attach them via the array syntax -->
+        <!-- 3) Let the user enter a class (create some example classes) and attach it -->
+
+
+        <!-- Card -->
+        <div class="col card">
+
+          <!-- Card content -->
+          <div class="card-body">
+
+            <!-- Title -->
+            <h4 class="card-title"><a class="badge badge-warning">Dynamic Classes</a></h4>
+            <!-- Text -->
+            <p class="card-text">Utilizes <span class="badge badge-success">:class</span> array syntax to alternate between classes input by user. Also has 2 static classes.</p>
+            <div><span :class="{bluefont:true, largefont:true,
+                          yellowbackground: ybgBool,
+                          greenbackground: gbgBool,
+                          orangebackground: obgBool}">
+                          I've got 2 static classes and 3 variable classes.</span>
+
+              <label>Type in a color: <span class="badge green">green</span>, <span class="badge orange">orange</span>, or <span class="badge yellow">yellow</span></label>&nbsp
+              <input v-model="backgroundClass" type="text">
+            </div>
+
+          </div>
+        </div>
+        <!-- Card -->
+
+    </div>
+
+    <!-- 4) Let the user enter a class and enter true/ false for another class (create some example classes) and attach the classes -->
+
+      <div class="card-deck">
+        <div class="card col">
+            <div class="card-body">
+                <h4 class="card-title"><a class="badge badge-warning">Dynamic Boolean Arrays</a></h4>
+              <p class="card-text">Utilizes <span class="badge badge-success">:class</span> array syntax to alternate between classes, allowing user to input class name and boolean switch.</p>
+              <span :class="{steve: steveBool,
+                    benny: bennyBool,
+                    italic: italicBool,
+                    oblique: obliqueBool}">
+                Enter a class name: <span class="badge badge-info">steve</span> or <span class="badge badge-info">benny</span> and in the other textbox put true or false</span><br><br>
+
+              <input v-model="classInput" style="display: inline-block" type="text" placeholder="(ex.) steve">&nbsp
+              <input v-model="classBoolean" type="text" placeholder="(ex.) true">
+            </div>
+          </div>
+
+        <!-- 5) Repeat 3) but now with values for styles (instead of class names). Attach the respective styles.  -->
+
+        <div class="card col">
+          <div class="card-body">
+            <h4 class="card-title"><a class="badge badge-warning">Dynamic Style { Attribute: value } pairs</a></h4>
+            <p class="card-text">Utilizes <span class="badge badge-success">:style</span> array syntax to choose style attributes as well as their corresponding value.</p>
+            <span :style="styleObject">Enter a style attribute and value as you would inside the braces of a class name in css ex: display: none</span>
+            <div>
+              <input v-model="rawStyle" type="text" placeholder="display: box">
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- 6) Create a simple progress bar with setInterval and style bindings. Start it by hitting the below button. -->
+
+
+    <div class="col card card-body">
+      <h4 class="card-title"><a class="badge badge-warning">Div as a reactive progress bar</a></h4>
+      <p class="card-text">Utilizes the reactivity of properties within the data property and methods to set and clear the interval. Styles are bound via an array of style objects dynamically.</p>
+      <button @click="startProgress" style="width: 250px" class="btn btn-primary">Start Progress</button><button @click="resetProgress" style="width: 250px" class="btn btn-secondary">Reset Progress</button>
+      <div :style="[barProgress, progressStyle]"></div>
+    </div>
+
+      <p data-height="304" data-theme-id="light" data-slug-hash="OEqZqX" data-default-tab="html" data-user="christopher-ridgeway" data-embed-version="2" data-pen-title="VueJS Examples" class="codepen">See the Pen <a href="https://codepen.io/christopher-ridgeway/pen/OEqZqX/">VueJS Examples</a> by Christopher Ridgeway (<a href="https://codepen.io/christopher-ridgeway">@christopher-ridgeway</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+      <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+      </body>
+</html>
