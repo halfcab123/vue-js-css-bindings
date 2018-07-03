@@ -17,7 +17,7 @@ new Vue({
         shrinkBool: false, //Shrink Boolean
         timer: null, //Used to store setinterval(), so we can clear it at will
         progressTimer: null,
-        progressStyle: {'background-color':'green','height':'10px'},
+        progressStyle: {'background-color':'green','height':'2.5em'},
         barProgress: {'width':'1px'},
         barWidth: 0,
         backgroundClass: ''
@@ -66,10 +66,10 @@ new Vue({
         },
         startProgress: function() {
             this.progressBar()
-            this.progressTimer = setInterval(this.progressBar, 100)
+            this.progressTimer = setInterval(this.progressBar, 50)
         },
         progressBar: function() {
-            if(this.barWidth < 100) {
+            if(this.barWidth < 250) {
                 this.barProgress = {'width':'' + this.barWidth++ + 'px'}
             } else {
                 clearInterval(this.progressTimer)
